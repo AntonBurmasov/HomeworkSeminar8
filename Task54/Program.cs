@@ -24,7 +24,7 @@ int ReadNumber(string message)
     return Convert.ToInt32(Console.ReadLine());
 }
 
-int[,] GetMatrix(int rowsCount, int columnsCount, int leftRange = -10, int rightRange = 10)
+int[,] GetMatrix(int rowsCount, int columnsCount, int leftRange = 0, int rightRange = 10)
 {
     int[,] matrix = new int[rowsCount, columnsCount];
 
@@ -56,23 +56,31 @@ void PrintMatrix(int[,] matrix)
 
 void OrderedArray(int[,] matrix)
 {   
-    int min = matrix[0,0];
+    
     int temp = 0;
+    int a = 0;
+    int b = 0;
+    int x = 0;
+    int y = 1;
      for(int i = 0; i < matrix.GetLength(0); i++)
       {
-        for(int j = 0; j < matrix.GetLength(1); j++)
+        for(int j = 0; j < matrix.GetLength(1) * matrix.GetLength(1); j++)
         {
-          if(min>matrix[i,j])
-           min = matrix[i,j];
-           temp = matrix[i,j];
-           
-
-        }
-
+            while(y < matrix.GetLength(1))
+            {
+              if(matrix[a,b]> matrix[x,y])
+              {
+              temp = matrix[x,y];
+              matrix[x,y] = matrix[a,b];
+              matrix[i,j] = temp;
+              y++;
+              b++;
+              }
+            }
+        } 
+        a++;   
+        x++;
       }
-
-
-
 
 }
 
@@ -81,5 +89,8 @@ int m = ReadNumber("Введите количество строк");
 int n = ReadNumber("Введите количество столбцов");
 int[,] matr = GetMatrix(m, n);
 PrintMatrix(matr);
+OrderedArray(matr);
+PrintMatrix(matr);
+
 
 

@@ -58,31 +58,30 @@ void OrderedArray(int[,] matrix)
 {   
     
     int temp = 0;
-    int a = 0;
     int b = 0;
-    int x = 0;
-    int y = 1;
      for(int i = 0; i < matrix.GetLength(0); i++)
-      {
-        for(int j = 0; j < matrix.GetLength(1) * matrix.GetLength(1); j++)
+      {  int a = i;
+         b = 0; 
+        for(int j = 0; j < matrix.GetLength(1); j++)
         {
-            while(y < matrix.GetLength(1))
+            
+            if(matrix[i,j]>matrix[a,b])
             {
-              if(matrix[a,b]> matrix[x,y])
-              {
-              temp = matrix[x,y];
-              matrix[x,y] = matrix[a,b];
+              temp = matrix[a,b];
+              matrix[a,b] = matrix[i,j];
               matrix[i,j] = temp;
-              y++;
-              b++;
-              }
+              b++; 
             }
+              
+        }
+        
+           
         } 
-        a++;   
-        x++;
+          
+        
       }
 
-}
+
 
 
 int m = ReadNumber("Введите количество строк");

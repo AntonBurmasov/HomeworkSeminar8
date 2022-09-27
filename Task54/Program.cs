@@ -77,7 +77,7 @@ void OrderedArray(int[,] matrix)
            b++;   
         }
         
-        b = 1;
+        b = 0;
         a++;   
         } 
           

@@ -10,7 +10,8 @@
 
 // 10 9 8 7
 
-// Делал данную задачу сам, реализация топорная, но ничего лучше не придумал.
+// Делал данную задачу сам, без помощи интернета и решения на семинаре, реализация топорная, но ничего лучше не придумал. 
+// На семинаре решение было гораздо удобной и универсальней.
 
 
 void PrintMatrix(int[,] matrix)
@@ -39,8 +40,8 @@ void PrintMatrix(int[,] matrix)
       value++;
       j++;
     }
-     i = i + 1;
      j = j - 1;
+     value = value - 1;
 
     while(i< matrix.GetLength(1))
     {
@@ -49,8 +50,8 @@ void PrintMatrix(int[,] matrix)
       i++;
 
     }
-  j = j - 1;
   i = i - 1;
+  value = value - 1;
   
 
    while(j > -1)
@@ -62,7 +63,7 @@ void PrintMatrix(int[,] matrix)
     }
 
  j = j + 1;
-i = i - 1;
+value = value - 1;
 
  while(i > 0)
  {
@@ -72,7 +73,7 @@ i = i - 1;
 
 }
 i = i + 1;
-j = j + 1;
+value = value - 1;
  while(j < 3)
  {
   matrix[i,j] = value;
@@ -80,7 +81,7 @@ j = j + 1;
   j++;
  }
  j = j - 1;
-i = i - 1;
+value = value - 1;
 
  while(i < 3)
  {
@@ -89,7 +90,7 @@ i = i - 1;
  i++;
  }
  i = i - 1;
- j = j - 1;
+ value = value - 1;
 
  while(j > 0)
  {

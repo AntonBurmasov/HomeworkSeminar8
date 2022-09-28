@@ -68,22 +68,23 @@ void PrintMatrix(int[,] matrix)
     }
 }
 
-void SumMatrix(int[,] matrix1, int[,] matrix2)
+int[,] MultiMatrix(int[,] matrix1, int[,] matrix2)
 {
-   for (int i = 0; i < matrix.GetLength(0); i++)
+   int[,] NewMatrix = new int[matrix1.GetLength(0), matrix1.GetLength(1)];
+   
+   for (int i = 0; i < NewMatrix.GetLength(0); i++)
     {
-        for (int j = 0; j < matrix.GetLength(1); j++)
+        for (int j = 0; j < NewMatrix.GetLength(1); j++)
         { 
 
-          
+           NewMatrix[i, j] = matrix1[i,j] * matrix2[i,j];
 
 
         }
 
-
-
     }
 
+ return NewMatrix;
 
 
 }
@@ -94,6 +95,13 @@ int n = ReadNumber("Введите количество столбцов");
 
 int[,] FirstMatr = GetMatrix(m, n);
 PrintMatrix(FirstMatr);
+Console.WriteLine("");
 
 int[,] SecondMatr = GetMatrix(m, n);
 PrintMatrix(SecondMatr);
+Console.WriteLine("");
+
+Console.WriteLine("Произведение элементов двух матриц:");
+int[,] NewMatrix = MultiMatrix(FirstMatr, SecondMatr);
+
+PrintMatrix(NewMatrix);
